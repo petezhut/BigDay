@@ -1,0 +1,24 @@
+{% extends "basic.html" %}
+{% block body %}
+<p>Attending</p>
+<ul>
+{% for rsvp in data['attending'].keys() %}
+<li>{{ rsvp }} </li>
+<ul>
+    {% for d in data['attending'][rsvp] %}
+	{% if d.has_key('guest_age') %}
+		<li>{{ d['guest_name'] }} - {{ d['guest_meal'] }} ({{ d['guest_age'] }})</li>
+	{% else %}
+		<li>{{ d['guest_name'] }} - {{ d['guest_meal'] }}</li>
+	{% endif %}
+    {% endfor %}
+</ul>
+{% endfor %}
+</ul>
+<p>Not Attending</p>
+<ul>
+{% for rsvp in data['not_attending'] %}
+    <li>{{ rsvp }} </li>
+{% endfor %}
+</ul>
+{% endblock %}

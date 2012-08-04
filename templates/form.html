@@ -1,0 +1,42 @@
+{% extends "basic.html" %}
+<meta http-equiv="Content-Script-Type" content="text/javascript"> 
+{% block body %}
+<form name='rsvp'method="post" action="/rsvp">
+    <table id='rsvp'>
+        <tr>
+            <td>
+                <input type=text name='rsvp_fname' id='RSVP_FirstName' value='First Name' onclick="this.value=''" />
+                <input type=text name='rsvp_lname' value='Last Name' onclick="this.value=''" />
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Will you be attending?
+            </td>
+            <td>
+                <input type=radio name='attending' value='Yes' onchange="unlock()" />Yes
+                <input type=radio name='attending' value='No' />No
+            </td>
+        </tr>
+        <tr>
+            <td>
+                How many will be in your party, including yourself?
+            </td>
+            <td>
+                <select disabled=true name='count' id='count' onchange="willattend()">
+                    <option value=0>Total guests, including yourself</option>
+                    {% for a in range(1,20) %}
+                        <option value={{ a }}>{{ a }}</option>
+                    {% endfor %}
+                </select>
+            </td>
+        </tr>
+    </table>
+    <hr />
+    <table id='menu'>
+    </table>
+    <dl><input type=submit value="Submit RSVP">
+</form>
+{% endblock %}
+
+

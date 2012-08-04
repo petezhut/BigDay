@@ -1,0 +1,10 @@
+{% extends "basic.html" %}
+{% block body %}
+Thank you so much, {{ rsvpdata.name }} for RSVP'ing!<br />
+{% if rsvpdata.attending.lower() == 'yes' %}
+    We look forward to seeing you there!
+{% else %}
+    Sorry that we'll miss you for the happy day!
+{% endif %}
+{% endblock %}
+

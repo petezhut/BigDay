@@ -1,0 +1,10 @@
+<!doctype html>
+<title>{{ title }}</title>
+<link rel=stylesheet type=text/css href="{{ url_for('static', filename='style.css') }}">
+<script type="text/javascript" src="{{ url_for('static', filename='form.js') }}"></script>
+<div class=navbar>
+    <a href='/'>Home</a> | <a href='/rsvp'>RSVP</a> | <a href=''>Gift Registry Link</a> | {{ daysleft }} days left until the wedding!
+</div>
+<div class=page>
+    {% block body %}{% endblock %}
+</div>
